@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vladislav & Alina</title>
+
+  <!-- Локальный шрифт OTF для cover -->
+  <style>
+    @font-face {
+      font-family: 'Ethena Emporium Script';
+      src: url('fonts/EthenaEmporiumScript.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Общие стили */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: 'Inter', sans-serif; background:#f6f4ef; color:#2a2a2a; }
+
+
+    
+/* Общие для cover */
+.cover {
+  height: 100vh;
+  background:
+    linear-gradient(to bottom,
+      #f6f4ef 0%,
+      rgba(246,244,239,0.85) 12%,
+      rgba(0,0,0,0.25) 35%,
+      rgba(0,0,0,0.25) 65%,
+      rgba(246,244,239,0.85) 88%,
+      #f6f4ef 100%),
+    url("front.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f6f4ef; /* Цвет текста под фон сайта */
+}
+
+.cover-inner {
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 140px 20px 80px;
+  font-family: 'Ethena Emporium Script', cursive;
+  text-align: center;
+  position: relative;
+}
+
+/* Имена */
+.names-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+.name {
+  font-size: 70px;
+  opacity: 0;
+}
+
+.name-left {
+  position: relative;
+  left: -100vw;
+  animation: slideLeft 1.8s cubic-bezier(0.25,0.1,0.25,1) forwards;
+}
+
+.name-right {
+  position: relative;
+  left: 100vw;
+  animation: slideRight 1.8s cubic-bezier(0.25,0.1,0.25,1) forwards;
+}
+
+.amp {
+  font-size: 50px;
+  opacity: 0;
+  animation: fadeAmp 1.2s ease forwards;
+  animation-delay: 1s;
+}
+
+/* Дата и подпись */
+.cover-bottom .date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin-left: 40px;
+}
+
+.date-left {
+  font-size: 28px;
+  opacity: 0;
+  position: relative;
+  left: -100vw;
+  animation: slideLeftDate 1.8s cubic-bezier(0.25,0.1,0.25,1) forwards;
+  animation-delay: 2s;
+}
+
+.subtitle-left {
+  font-size: 20px;
+  opacity: 0;
+  position: relative;
+  left: -100vw;
+  animation: slideLeftDate 1.8s cubic-bezier(0.25,0.1,0.25,1) forwards;
+  animation-delay: 2.2s;
+}
+
+/* Анимации */
+@keyframes slideLeft { to { left:0; opacity:1; } }
+@keyframes slideRight { to { left:0; opacity:1; } }
+@keyframes fadeAmp { to { opacity:1; } }
+@keyframes slideLeftDate { to { left:0; opacity:1; } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.intro {
+  padding: 100px 20px;
+  text-align: center;
+  font-family: 'Ethena Emporium Script', cursive; /* для LOVE */
+  color: #7a745f; /* контрастный цвет */
+}
+
+/* LOVE */
+.love {
+  font-size: 100px;
+  margin-bottom: 20px;
+}
+
+.love span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-50px); /* старт слева */
+  animation: appearLeft 0.8s forwards;
+}
+
+/* Задержка появления слева направо */
+.love span:nth-child(1) { animation-delay: 0s; }   /* L */
+.love span:nth-child(2) { animation-delay: 0.2s; } /* O */
+.love span:nth-child(3) { animation-delay: 0.4s; } /* V */
+.love span:nth-child(4) { animation-delay: 0.6s; } /* E */
+
+@keyframes appearLeft {
+  to { opacity:1; transform: translateX(0); }
+}
+
+
+/* Печатная строка "ЛЮБІ НАШІ ГОСТІ!" */
+.typing {
+  font-size: 36px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #7a745f; /* курсор */
+  width: 0;
+  display: inline-block;
+  animation: typing 2s steps(18) forwards 1s; /* шаги = длина текста */
+}
+
+@keyframes typing {
+  to { width: 18ch; } /* 18 символов текста */
+}
+
+
+/* Остальной текст */
+.text-block p {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  margin: 10px 0;
+}
+
+.text-block p:nth-child(1) { animation-delay: 3.5s; }
+.text-block p:nth-child(2) { animation-delay: 4.5s; }
+
+@keyframes fadeIn {
+  to { opacity:1; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* INTRO и форма RSVP */
+    .intro { padding:80px 20px; max-width:600px; margin:auto; text-align:center; }
+    .subtitle { text-transform:uppercase; letter-spacing:3px; font-size:11px; color:#7a745f; }
+    h1 { font-family:'Cormorant Garamond', serif; font-size:50px; font-weight:500; margin:20px 0; }
+    .date { letter-spacing:4px; font-size:14px; margin-bottom:30px; }
+    .text { font-size:18px; line-height:1.7; margin-bottom:40px; }
+
+    .form {
+      background:#fff; max-width:520px; margin:0 auto 120px; padding:60px;
+    }
+
+    .field { margin-bottom:30px; text-align:left; }
+    label { display:block; font-family:'Cormorant Garamond', serif; font-size:22px; margin-bottom:10px; }
+    input, select { width:100%; border:none; border-bottom:1px solid #7a745f; padding:10px 5px; font-size:16px; font-family:inherit; background:transparent; }
+    input:focus, select:focus { outline:none; }
+    button { margin-top:20px; padding:14px 40px; border:1px solid #7a745f; background:transparent; font-family:'Cormorant Garamond', serif; font-size:18px; cursor:pointer; }
+
+    /* CALENDAR */
+    .calendar-section { padding:100px 20px; text-align:center; }
+    .countdown { font-family:'Cormorant Garamond', serif; font-size:48px; margin:30px 0 10px; }
+    .countdown small { display:block; font-size:14px; letter-spacing:2px; color:#7a745f; }
+    .calendar { max-width:360px; margin:50px auto 0; font-family:'Inter', sans-serif; }
+    .month { font-family:'Cormorant Garamond', serif; font-size:28px; margin-bottom:20px; }
+    .weekdays, .days { display:grid; grid-template-columns:repeat(7,1fr); }
+    .weekdays span { font-size:12px; letter-spacing:1px; color:#7a745f; }
+    .days span { padding:12px 0; font-size:14px; }
+    .wedding-day { border:1px solid #7a745f; font-family:'Cormorant Garamond', serif; }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- COVER -->
+
+<section class="cover">
+  <div class="cover-inner">
+    <!-- Имена -->
+    <div class="names-top">
+      <span class="name name-left">Vladislav</span>
+      <span class="amp">&amp;</span>
+      <span class="name name-right">Alina</span>
+    </div>
+
+    <!-- Дата и подпись под ней -->
+    <div class="cover-bottom">
+      <div class="date-block">
+        <span class="date-left">20 · 07 · 2026</span>
+        <span class="subtitle-left">Wedding Day</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- INTRO -->
+<section class="intro">
+  <!-- Слово LOVE -->
+  <div class="love">
+    <span>L</span>
+    <span>O</span>
+    <span>V</span>
+    <span>E</span>
+  </div>
+
+  <!-- Печатная строка -->
+  <h2 class="typing">ЛЮБІ НАШІ ГОСТІ!</h2>
+
+  <!-- Остальной текст -->
+  <div class="text-block">
+    <p>Незабаром у нашому житті відбудеться важлива подія – наше весілля!</p>
+    <p>Ми віримо та сподіваємося, що цей день стане гарним початком довгого та щасливого життя.</p>
+  </div>
+</section>
+
+
+
+
+
+    <!-- CALENDAR -->
+  <section class="calendar-section">
+    <h2>Дата свадьбы</h2>
+
+    <div class="countdown">
+      <span id="days"></span>
+      <small>дней до события</small>
+    </div>
+
+    <div class="calendar">
+      <div class="month">Июль 2026</div>
+      <div class="weekdays">
+        <span>Пн</span><span>Вт</span><span>Ср</span>
+        <span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+      </div>
+      <div class="days">
+        <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+        <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+        <span class="wedding-day">20</span>
+        <span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
+        <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+<form class="form" action="https://formsubmit.co/nogka6@gmail.com" method="POST">
+  
+  <div class="field">
+    <label>Ваше имя</label>
+    <input type="text" name="name" required>
+  </div>
+
+  <div class="field">
+    <label>Сможете ли вы присутствовать?</label>
+    <select name="attendance" required>
+      <option value=""></option>
+      <option>С радостью приду</option>
+      <option>К сожалению, не смогу</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>С кем вы придёте?</label>
+    <select name="guests">
+      <option value=""></option>
+      <option>Один / одна</option>
+      <option>С партнёром</option>
+      <option>С семьёй</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Пищевые предпочтения</label>
+    <input type="text" name="food">
+  </div>
+
+  <!-- Скрытые поля Formsubmit для настройки -->
+  <input type="hidden" name="_captcha" value="false"> <!-- отключает капчу -->
+  <input type="hidden" name="_subject" value="RSVP форма с сайта">
+  <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html"> <!-- куда идти после отправки -->
+
+  <button type="submit">Отправить ответ</button>
+</form>
+
+
+
+
+
+  <!-- JS Countdown -->
+  <script>
+    const weddingDate = new Date("2026-07-20T14:00:00");
+    const daysEl = document.getElementById("days");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        daysEl.innerText = "Сегодня";
+        return;
+      }
+
+      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+      daysEl.innerText = days;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000 * 60 * 60);
+  </script>
+
+</body>
+</html>
